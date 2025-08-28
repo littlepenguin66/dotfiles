@@ -58,10 +58,6 @@ proxy() {
     # 设置socks5代理
     export all_proxy="$socks_addr"
     
-    # Git代理设置
-    git config --global http.proxy "$proxy_addr"
-    git config --global https.proxy "$proxy_addr"
-    
     echo "代理已启用"
     echo "HTTP代理: $http_proxy"
     echo "HTTPS代理: $https_proxy"
@@ -74,10 +70,6 @@ unproxy() {
     unset http_proxy
     unset https_proxy
     unset all_proxy
-    
-    # 清除Git的代理设置
-    git config --global --unset http.proxy
-    git config --global --unset https.proxy
     
     echo "代理已关闭"
 }
